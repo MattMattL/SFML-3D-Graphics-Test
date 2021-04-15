@@ -1,10 +1,9 @@
 # Project Coding Style Guide
 
-- Macro
-	- Writing Header Files
-	- Include Guard
-	- Order of Includes
-	- define Keyword
+- [Macro](#Macro)
+	- [Include Guard](#Include-Guard)
+	- [Order of Includes](#Order-of-Includes)
+	- [define Keyword](#define-Keyword)
 
 - Classes
 
@@ -28,6 +27,32 @@
 The order generally follows Google C++ Style Guide: https://google.github.io/styleguide/cppguide
 
 ----------------------------------------------------------------
+
+## Macro
+
+### Include Guard
+
+- Header files start with one of the following:
+
+``` C++
+#pragma once
+```
+
+or
+
+``` C++
+#ifndef FILE_NAME_HPP
+#define FILE_NAME_HPP
+
+// ...
+
+#endif
+```
+
+### Order of Includes
+
+### define Keyword
+
 
 ## Naming
 
