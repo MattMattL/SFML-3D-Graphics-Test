@@ -5,8 +5,8 @@
 	- [Order of Includes](#Order-of-Includes)
 	- [define Keyword](#define-Keyword)
 
-- Classes
-
+- [Classes](#Classes)
+	- [Layout](#Layout)
 
 - Functions
 
@@ -52,6 +52,58 @@ or
 ### Order of Includes
 
 ### define Keyword
+
+
+## Classes
+
+### Layout
+
+- A file should contain only one class
+- Funtion definitions are included in the same file
+- General layout for a class is shown below:
+
+``` C++
+#ifndef YOUR_CLASS_NAME_HPP // include guard (or use #pragma)
+#define YOUR_CLASS_NAME_HPP
+
+class YourClassName
+{
+public: // 'public' before 'private'
+	YourClassName();
+	YourClassName(int);
+	~YourClassName();
+
+	void fcn1();
+	void fcn2();
+
+	int fcn3(int); // function overload
+	int fcn3(int, int); // function overload
+	int fcn3(double); // function overload
+
+private:
+	void printError();
+};
+
+YourClassName::YourClassName() // defined seperately, in the same file
+{
+	// ...
+}
+
+void YourClassName::fcn1()
+{
+	// ...
+}
+
+// ...
+
+#endif // end of include guard (not needed for #pragma)
+```
+
+
+## Functions
+
+### (...)
+
 
 
 ## Naming
