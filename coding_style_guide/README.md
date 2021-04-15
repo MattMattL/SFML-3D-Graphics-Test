@@ -22,10 +22,11 @@
 
 - Comments
 
-- Formatting
-	- Brackets
+- [Formatting](#Formatting)
+	- [Brackets](#Brackets)
+	- [Separating Lines](#Separating-Lines)
 
-The order generally follows Google C++ Style Guide: https://google.github.io/styleguide/cppguide
+The order (but not the style) generally follows Google C++ Style Guide: https://google.github.io/styleguide/cppguide
 
 ----------------------------------------------------------------
 
@@ -285,5 +286,33 @@ if(conditionB) // okay
 else
 {
 	j++;
+}
+```
+
+### Separating Lines
+
+Long horizontal code can be separated vertically:
+
+``` C++
+cout << "(" <<  num1 << " + " << num2 << ") / 2 = " << (num1 + num2) / 2 << endl; // too long
+
+cout << "(" <<  num1
+	 << " + " << num2
+	 << ") / 2 = " << (num1 + num2) / 2 << endl; // easier to see
+
+int getPlayerRanking(PlayerBase playerBase, GameManager gameManager, int currentRanking, int previousRanking)
+{
+	// this is too long
+}
+
+int getPlayerRanking(PlayerBase playerBase, GameManager gameManager,
+					 int currentRanking, int previousRanking)
+{
+	// this is a bit shorter
+}
+
+int getPlayerRanking(PlayerBase player, GameManager game, int currRanking, int prevRanking)
+{
+	// another solution: shorter variable names
 }
 ```
