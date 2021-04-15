@@ -23,6 +23,7 @@
 - Comments
 
 - Formatting
+	- Brackets
 
 The order generally follows Google C++ Style Guide: https://google.github.io/styleguide/cppguide
 
@@ -54,12 +55,16 @@ or
 ### define Keyword
 
 
+
+
+
+
 ## Classes
 
 ### Layout
 
-- A file should contain only one class
-- Funtion definitions are included in the same file
+- A header file should contain only one class
+- Function definitions are defined separately, in the same file
 - General layout for a class is shown below:
 
 ``` C++
@@ -76,15 +81,16 @@ public: // 'public' before 'private'
 	void fcn1();
 	void fcn2();
 
-	int fcn3(int); // function overload
-	int fcn3(int, int); // function overload
-	int fcn3(double); // function overload
+	// function overload:
+	int fcn3(int);
+	int fcn3(int, int);
+	int fcn3(double);
 
 private:
 	void printError();
 };
 
-YourClassName::YourClassName() // defined seperately, in the same file
+YourClassName::YourClassName() // function definitions
 {
 	// ...
 }
@@ -100,9 +106,26 @@ void YourClassName::fcn1()
 ```
 
 
+
+
+
 ## Functions
 
 ### (...)
+
+
+## Statements
+
+### if Statement
+
+### Ternary Operator
+
+### for Statement
+
+### while Statement
+
+
+
 
 
 
@@ -115,11 +138,11 @@ void YourClassName::fcn1()
 - camelCase
 
 ``` C++
-int count = 0; // not 'countNumbers'
+int count = 0; // 'countNumbers' is not simple
 int i, j; // not 'iterator' or 'i1', 'i2'
-string names[8]; // not 'stringNames' or 'strNames'
+string names[8]; // not 'strNames'
 
-int numOfPeople; // not 'numofpeople' or 'num_of_people'
+int numOfPeople; // not 'num_of_people'
 bool isEven;
 ```
 
@@ -165,7 +188,7 @@ class BoardGraphics { /* ... */ };
 
 ### Enumerators
 
-- Enumerators are perfied with 'E'
+- Enumerators are prefixed with 'E'
 
 ``` C++
 enum EColours { /* ... */ };
@@ -184,4 +207,83 @@ header.hpp
 header.h
 game_launcher.hpp
 graphics_manager.hpp
+```
+
+
+
+
+
+## Comments
+
+
+
+
+
+## Formatting
+
+### Brackets
+
+Any bracket style can be used as long as used consistently:
+
+``` C++
+int main()
+{
+
+}
+
+// or
+
+int main() {
+
+}
+```
+
+One-line statements can omit brackets:
+
+``` C++
+if(condition1)
+{
+	setMessage(msg);
+}
+
+// or
+
+if(condition1)
+	setMessage(msg);
+```
+
+Brackets used in-line should be consistent:
+
+``` C++
+if(conditionA) // okay
+	i++;
+else
+	j++;
+
+if(conditionA) // okay
+{
+	i++;
+}
+else
+{
+	j++;
+}
+
+if(conditionB) // not okay
+{
+	i++;
+	setMessage(msg);
+}
+else
+	j++;
+
+if(conditionB) // okay
+{
+	i++;
+	setMessage(msg);
+}
+else
+{
+	j++;
+}
 ```
