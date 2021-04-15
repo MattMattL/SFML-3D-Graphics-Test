@@ -1,30 +1,30 @@
 # Project Coding Style Guide
 
 - [Macro](#Macro)
-	- [Include Guard](#Include-Guard)
-	- [Order of Includes](#Order-of-Includes)
-	- [define Keyword](#define-Keyword)
+    - [Include Guard](#Include-Guard)
+    - [Order of Includes](#Order-of-Includes)
+    - [define Keyword](#define-Keyword)
 
 - [Classes](#Classes)
-	- [Layout](#Layout)
+    - [Layout](#Layout)
 
 - Functions
 
 - Statements
 
 - [Naming](#naming)
-	- [Variables](#variables)
-	- [Constants](#constants)
-	- [Functions](#functions)
-	- [Classes](#classes)
-	- [Enumerators](#enumerators)
-	- [Files](#files)
+    - [Variables](#variables)
+    - [Constants](#constants)
+    - [Functions](#functions)
+    - [Classes](#classes)
+    - [Enumerators](#enumerators)
+    - [Files](#files)
 
 - Comments
 
 - [Formatting](#Formatting)
-	- [Brackets](#Brackets)
-	- [Separating Lines](#Separating-Lines)
+    - [Brackets](#Brackets)
+    - [Separating Lines](#Separating-Lines)
 
 The order (but not the style) generally follows Google C++ Style Guide: https://google.github.io/styleguide/cppguide
 
@@ -75,30 +75,30 @@ or
 class YourClassName
 {
 public: // 'public' before 'private'
-	YourClassName();
-	YourClassName(int);
-	~YourClassName();
+    YourClassName();
+    YourClassName(int);
+    ~YourClassName();
 
-	void fcn1();
-	void fcn2();
+    void fcn1();
+    void fcn2();
 
-	// function overload:
-	int fcn3(int);
-	int fcn3(int, int);
-	int fcn3(double);
+    // function overload:
+    int fcn3(int);
+    int fcn3(int, int);
+    int fcn3(double);
 
 private:
-	void printError();
+    void printError();
 };
 
 YourClassName::YourClassName() // function definitions
 {
-	// ...
+    // ...
 }
 
 void YourClassName::fcn1()
 {
-	// ...
+    // ...
 }
 
 // ...
@@ -172,8 +172,8 @@ string toString; // converter
 
 int countScore(int numPlayersIn, int minScore)
 {
-	int numPlayers = numPlayersIn;
-	// ...
+    int numPlayers = numPlayersIn;
+    // ...
 }
 ```
 
@@ -244,48 +244,48 @@ One-line statements can omit brackets:
 ``` C++
 if(condition1)
 {
-	setMessage(msg);
+    setMessage(msg);
 }
 
 // or
 
 if(condition1)
-	setMessage(msg);
+    setMessage(msg);
 ```
 
 Brackets used in-line should be consistent:
 
 ``` C++
 if(conditionA) // okay
-	i++;
+    i++;
 else
-	j++;
+    j++;
 
 if(conditionA) // okay
 {
-	i++;
+    i++;
 }
 else
 {
-	j++;
+    j++;
 }
 
 if(conditionB) // not okay
 {
-	i++;
-	setMessage(msg);
+    i++;
+    setMessage(msg);
 }
 else
-	j++;
+    j++;
 
 if(conditionB) // okay
 {
-	i++;
-	setMessage(msg);
+    i++;
+    setMessage(msg);
 }
 else
 {
-	j++;
+    j++;
 }
 ```
 
@@ -294,25 +294,27 @@ else
 Long horizontal code can be separated vertically:
 
 ``` C++
-cout << "(" <<  num1 << " + " << num2 << ") / 2 = " << (num1 + num2) / 2 << endl; // too long
+// too long
+cout << "(" <<  num1 << " + " << num2 << ") / 2 = " << (num1 + num2) / 2 << endl;
 
+// easier to see
 cout << "(" <<  num1
-	 << " + " << num2
-	 << ") / 2 = " << (num1 + num2) / 2 << endl; // easier to see
+     << " + " << num2
+     << ") / 2 = " << (num1 + num2) / 2 << endl;
 
 int getPlayerRanking(PlayerBase playerBase, GameManager gameManager, int currentRanking, int previousRanking)
 {
-	// this is too long
+    // this is too long
 }
 
 int getPlayerRanking(PlayerBase playerBase, GameManager gameManager,
-					 int currentRanking, int previousRanking)
+                     int currentRanking, int previousRanking)
 {
-	// this is a bit shorter
+    // this is a bit shorter
 }
 
 int getPlayerRanking(PlayerBase player, GameManager game, int currRanking, int prevRanking)
 {
-	// another solution: shorter variable names
+    // another solution: shorter variable names
 }
 ```
