@@ -1,110 +1,110 @@
 # Project Coding Style Guide
 
-1. Macro
-- 1.1. Writing Header Files
-- 1.2. Include Guard
-- 1.3. Order of Includes
-- 1.4. define Keyword
+- Macro
+	- Writing Header Files
+	- Include Guard
+	- Order of Includes
+	- define Keyword
 
-2. Classes
-- 2.1.
+- Classes
 
-3. Functions
 
-4. (...)
+- Functions
 
-5. Naming
-- 5.1. [Variables](#5.1.-variables)
-- 5.2. [Constants](#5.2.-constants)
-- 5.3. [Functions](#5.3.-functions)
-- 5.4. [Classes](#5.4.-classes)
-- 5.5. [Enumerators](#5.5.-enumerators)
+- Statements
 
-6. Comments
+- [Naming](#naming)
+	- [Variables](#variables)
+	- [Constants](#constants)
+	- [Functions](#Functions)
+	- [Classes](#Classes)
+	- [Enumerators](#Enumerators)
+	- [Files](#files)
 
-7. Formatting
+- Comments
+
+- Formatting
 
 The order generally follows Google C++ Style Guide: https://google.github.io/styleguide/cppguide
 
 ----------------------------------------------------------------
 
-## 5. Naming
+## Naming
 
-### 5.1. Variables
+### Variables
 
-Variable names should be simple but clear:
-
-``` C++
-int count = 0;
-int i, j;
-string names[8];
-```
-
-Camel case with the first letter in lower case for multiple words:
+- Variable names should be simple but clear
+- camelCase
 
 ``` C++
-int countNums; // 'count' is better
-int numOfPeople;
-bool isEvenNumber; // 'isEven' is better
+int count = 0; // not 'countNumbers'
+int i, j; // not 'iterator' or 'i1', 'i2'
+string names[8]; // not 'stringNames' or 'strNames'
+
+int numOfPeople; // not 'numofpeople' or 'num_of_people'
+bool isEven;
 ```
 
-Not prefixed with its type:
+### Constants
 
-``` C++
-string userID; // rather than 'strUserID'
-
-```
-
-### 5.2. Constants
-
-All in capital letters with '\_' instead of spaces:
+- camelCase
+- spaces are replaced with \_
 
 ``` C++
 #define MAX_ROW 16
 #define MAX_COL 10
 
-const int SIZE_OF_ARR = 8; // sometimes 'ARRAY' is too lengthy
+const int SIZE_OF_ARR = 8;
 const double PI = 3.14159265;
 ```
 
-### 5.3. Functions
+### Functions
 
-Camel case with the first letter in lower case for multiple words:
-
-``` C++
-int getTotalNumber();
-string toString;
-void setCount(int count);
-```
-
-Parameters:
-
-Postfixed with 'In' if the function has the same variable:
+- camelCase
+- Parameters are postfixed with 'In' if the function has the same variable
 
 ``` C++
+int getTotalNumber(); // getter
+void setCount(int count); // setter
+string toString; // converter
+
 int countScore(GameResult result, int numPlayersIn, int minScore)
 {
 	int numPlayers = numPlayersIn;
 	// ...
+	return numPlayers;
 }
 ```
 
-### 5.4. Classes
+### Classes
 
-Camel case throughout the entire name:
+- CamelCase
 
 ``` C++
-class EntityBase {};
-class PlayerModel {};
-class BoardGraphics {};
+class EntityBase { /* ... */ };
+class PlayerModel { /* ... */ };
+class BoardGraphics { /* ... */ };
 ```
 
-### 5.5. Enumerators
+### Enumerators
 
-Perfied with 'E':
+- Enumerators are perfied with 'E'
 
 ``` C++
 enum EColours { /* ... */ };
 enum EDataType { /* ... */ };
 enum EPlayerType { /* ... */ };
+```
+
+### Files
+
+- File names are in lower case and separated by \_
+
+```
+main.cpp
+test.c
+header.hpp
+header.h
+game_launcher.hpp
+graphics_manager.hpp
 ```
