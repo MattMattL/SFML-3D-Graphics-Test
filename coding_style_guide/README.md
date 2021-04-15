@@ -16,9 +16,9 @@
 - [Naming](#naming)
 	- [Variables](#variables)
 	- [Constants](#constants)
-	- [Functions](#Functions)
-	- [Classes](#Classes)
-	- [Enumerators](#Enumerators)
+	- [Functions](#functions)
+	- [Classes](#classes)
+	- [Enumerators](#enumerators)
 	- [Files](#files)
 
 - Comments
@@ -34,6 +34,7 @@ The order generally follows Google C++ Style Guide: https://google.github.io/sty
 ### Variables
 
 - Variable names should be simple but clear
+- Variables are not prefixed with its type, e.g. str, arr
 - camelCase
 
 ``` C++
@@ -47,8 +48,8 @@ bool isEven;
 
 ### Constants
 
-- camelCase
-- spaces are replaced with \_
+- All in capital letters
+- Spaces are replaced with \_
 
 ``` C++
 #define MAX_ROW 16
@@ -68,11 +69,10 @@ int getTotalNumber(); // getter
 void setCount(int count); // setter
 string toString; // converter
 
-int countScore(GameResult result, int numPlayersIn, int minScore)
+int countScore(int numPlayersIn, int minScore)
 {
 	int numPlayers = numPlayersIn;
 	// ...
-	return numPlayers;
 }
 ```
 
