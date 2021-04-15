@@ -1,24 +1,24 @@
 # Project Coding Style Guide
 
 1. Macro
-1.1. Writing Header Files
-1.2. Include Guard
-1.3. Order of Includes
-1.4. define Keyword
+- 1.1. Writing Header Files
+- 1.2. Include Guard
+- 1.3. Order of Includes
+- 1.4. define Keyword
 
 2. Classes
-2.1.
+- 2.1.
 
 3. Functions
 
 4. (...)
 
 5. Naming
-5.1. [Variables](#5.1.-Variables)
-5.2. [Constants](#5.2.-Constants)
-5.3. [Functions](#5.3.-Functions)
-5.4. [Classes](#5.4.-Classes)
-5.5. [Enumerators](#5.5.-enumerators)
+- 5.1. [Variables](#5.1.-variables)
+- 5.2. [Constants](#5.2.-constants)
+- 5.3. [Functions](#5.3.-functions)
+- 5.4. [Classes](#5.4.-classes)
+- 5.5. [Enumerators](#5.5.-enumerators)
 
 6. Comments
 
