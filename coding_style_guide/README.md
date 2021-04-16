@@ -146,7 +146,7 @@ string names[8];    // not 'stringNames' or 'strNames'
 ### Constants
 
 ``` C++
-#define MAX_ROW 16
+#define MAX_ROW 16 // UPPER_CASE
 #define MAX_COL 10
 
 const int SIZE_OF_ARR = 8;
@@ -208,9 +208,57 @@ graphics_manager.hpp
 
 ### Single-Line Comments
 
+Comment the general flow of your code:
+
+``` C++
+int isPrime(int n)
+{
+    // check divisibility upto sqrt(n)
+    for(int i=2; i<=sqrt(n); i++)
+    {
+        if(n % i == 0)
+            return 0;
+    }
+
+    // is a prime if n has no proper factor
+    return 1;
+}
+
+// rather than
+
+// is prime
+int isPrime(int n) // takes the parameter as n
+{ // function starts
+    for(int i=2; i<=sqrt(n); i++) // iterates from 2 to sqrt(n)
+    { // for starts
+        if(n % i == 0) // divide by i and check if i devides n
+            return 0; // return true if divisible
+    } // for ends
+
+    return 1; // return true if there is no proper factor
+} // function ends
+```
+Commenting side notes:
+
+``` C++
+if(i > threshold)
+{ /* ... */ }
+else if(i < threshold)
+{ /* ... */ }
+else // (i == threshold)
+{ /* ... */ }
+```
+
 ### Multi-Line Comments
 
+Commenting out a bit chunk of unused or test code:
 
+``` C++
+/*void printErrMsg(string fcn, string msg)
+{
+    cout << "[error] " << fcn << ": " << msg << endl;
+}*/
+```
 
 
 
@@ -220,7 +268,7 @@ graphics_manager.hpp
 
 ### Brackets
 
-Any bracket style can be used as long as consistent:
+Any bracket style can be used as long as used consistently:
 
 ``` C++
 int main()
@@ -257,9 +305,10 @@ if(conditionA) // okay
 else
     j++;
 
-if(conditionA) // okay
+if(conditionB) // okay
 {
     i++;
+    setMessage(msg);
 }
 else
 {
@@ -273,16 +322,6 @@ if(conditionB) // not okay
 }
 else
     j++;
-
-if(conditionB) // okay
-{
-    i++;
-    setMessage(msg);
-}
-else
-{
-    j++;
-}
 ```
 
 ### Separating Lines
@@ -359,8 +398,6 @@ int isOdd(int n)
     else
         return 0;
 }
-
-//
 
 if(node->right)
     traverse(node->right);
