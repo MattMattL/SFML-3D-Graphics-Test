@@ -34,7 +34,7 @@ The order (but not the style) generally follows Google C++ Style Guide: https://
 
 ### Include Guard
 
-- Header files start with one of the following:
+- Header files must start with one of the following:
 
 ``` C++
 #pragma once
@@ -43,7 +43,7 @@ The order (but not the style) generally follows Google C++ Style Guide: https://
 or
 
 ``` C++
-#ifndef FILE_NAME_HPP
+#ifndef FILE_NAME_HPP // corresponding to 'file_name.hpp'
 #define FILE_NAME_HPP
 
 // ...
