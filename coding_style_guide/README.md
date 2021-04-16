@@ -129,21 +129,24 @@ void YourClassName::fcn1()
 
 ## Naming
 
+Variable names should be short, simple but clear. Example formats for different types are: CamelCase, camelCase, lower_case, and UPPER_CASE.
+
 ### Variables
 
 ``` C++
+bool isEven;        // camelCase
+
 int count = 0;      // not 'countValidNums'
 int i, j;           // not 'iterator' or 'i1', 'i2'
-string names[8];    // not 'stringNames' or 'strNames'
-
 int numOfPeople;    // not 'num_of_people'
-bool isEven;
+
+string names[8];    // not 'stringNames' or 'strNames'
 ```
 
 ### Constants
 
 ``` C++
-#define MAX_ROW 16  // all capital, seperated by _
+#define MAX_ROW 16
 #define MAX_COL 10
 
 const int SIZE_OF_ARR = 8;
@@ -153,9 +156,11 @@ const double PI = 3.14159;
 ### Functions
 
 ``` C++
-int getTotalNumber();       // getter
+int getTotalNumber();       // getter, camelCase
 void setCount(int count);   // setter
+
 string toString;            // converter
+
 bool isValidName(int n);    // boolean return
 bool containsPrime(int n[]) // boolean return
 ```
@@ -169,7 +174,7 @@ bool containsPrime(int n[]) // boolean return
 ### Classes
 
 ``` C++
-class EntityBase { /* ... */ };
+class EntityBase { /* ... */ }; // CamelCase
 class PlayerData { /* ... */ };
 class BoardGraphics { /* ... */ };
 ```
@@ -177,15 +182,15 @@ class BoardGraphics { /* ... */ };
 ### Enumerators
 
 ``` C++
-enum EColours { /* ... */ };
+enum EColours { /* ... */ }; // ECamelCase
 enum EDataType { /* ... */ };
 enum EPlayerType { /* ... */ };
 ```
 
 ### Files
 
-```
-main.cpp
+``` C++
+main.cpp // lower_case.extension
 test.c
 header.hpp
 header.h
