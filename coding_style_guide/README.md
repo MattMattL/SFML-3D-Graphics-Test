@@ -1,7 +1,8 @@
 # Project Coding Style Guide
 
-- [Macro](#Macro)
+- [Getting Started](#Getting-Started)
     - [Include Guard](#Include-Guard)
+    - [Layout](#layout)
 
 - [Classes](#Classes)
     - [Layout](#Layout)
@@ -33,11 +34,11 @@ The order (but not the style) generally follows Google C++ Style Guide: https://
 
 ----------------------------------------------------------------
 
-## Macro
+## Getting Started
 
 ### Include Guard
 
-- Header files must start with one of the following:
+Header files must start with one of the following:
 
 ``` C++
 #pragma once
@@ -54,7 +55,24 @@ or
 #endif
 ```
 
+### Layout
 
+The general layout of the start of a file should follow as shown:
+
+``` C++
+#pragma once // 1. include guard
+
+#include <iostream> // 2. standard libraries
+#include <fstream>
+#include <vector>
+#include "nnet.hpp" // 3. cutom libraries
+#include "launcher.hpp"
+
+#define MAX_ARR_SIZE 2048 // 4. macro
+#define MAX_VEC_SIZE 128
+
+using namespace std; // 5. namespace
+```
 
 
 
