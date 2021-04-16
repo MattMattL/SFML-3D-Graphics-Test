@@ -18,14 +18,16 @@
     - [Enumerators](#enumerators)
     - [Files](#files)
 
-- Comments
+- [Comments](#Comments)
+    - [Single-Line Comments](#[Single-Line-Comments)
+    - [Multi-Line Comments](#[Multi-Line-Comments)
 
 - [Formatting](#Formatting)
     - [Brackets](#Brackets)
     - [Separating Lines](#Separating-Lines)
     - [Avoiding Abundance](#Avoiding-Abundance)
 
-- Optimisations
+- [Optimisations](#Optimisations)
 
 The order (but not the style) generally follows Google C++ Style Guide: https://google.github.io/styleguide/cppguide
 
@@ -242,11 +244,11 @@ Commenting side notes:
 
 ``` C++
 if(i > threshold)
-{ /* ... */ }
+// ... 
 else if(i < threshold)
-{ /* ... */ }
+// ... 
 else // (i == threshold)
-{ /* ... */ }
+// ... 
 ```
 
 ### Multi-Line Comments
