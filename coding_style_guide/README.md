@@ -129,7 +129,7 @@ void YourClassName::fcn1()
 
 ## Naming
 
-- Variables
+### Variables
 
 ``` C++
 int count = 0;      // not 'countValidNums'
@@ -140,7 +140,7 @@ int numOfPeople;    // not 'num_of_people'
 bool isEven;
 ```
 
-- Constants
+### Constants
 
 ``` C++
 #define MAX_ROW 16  // all capital, seperated by _
@@ -150,7 +150,7 @@ const int SIZE_OF_ARR = 8;
 const double PI = 3.14159;
 ```
 
-- Functions
+### Functions
 
 ``` C++
 int getTotalNumber();       // getter
@@ -160,13 +160,13 @@ bool isValidName(int n);    // boolean return
 bool containsPrime(int n[]) // boolean return
 ```
 
-- Parameters
+### Parameters
 
 ``` C++
 
 ```
 
-- Classes
+### Classes
 
 ``` C++
 class EntityBase { /* ... */ };
@@ -174,7 +174,7 @@ class PlayerData { /* ... */ };
 class BoardGraphics { /* ... */ };
 ```
 
-- Enumerators
+### Enumerators
 
 ``` C++
 enum EColours { /* ... */ };
@@ -182,7 +182,7 @@ enum EDataType { /* ... */ };
 enum EPlayerType { /* ... */ };
 ```
 
-- Files
+### Files
 
 ```
 main.cpp
