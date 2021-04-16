@@ -129,64 +129,52 @@ void YourClassName::fcn1()
 
 ## Naming
 
-### Variables
-
-- Variable names should be simple but clear
-- Variables are not prefixed with its type, e.g. str, arr
-- camelCase
+- Variables
 
 ``` C++
-int count = 0; // 'countNumbers' is not simple
-int i, j; // not 'iterator' or 'i1', 'i2'
-string names[8]; // not 'strNames'
+int count = 0;      // not 'countValidNums'
+int i, j;           // not 'iterator' or 'i1', 'i2'
+string names[8];    // not 'stringNames' or 'strNames'
 
-int numOfPeople; // not 'num_of_people'
+int numOfPeople;    // not 'num_of_people'
 bool isEven;
 ```
 
-### Constants
-
-- All in capital letters
-- Spaces are replaced with \_
+- Constants
 
 ``` C++
-#define MAX_ROW 16
+#define MAX_ROW 16  // all capital, seperated by _
 #define MAX_COL 10
 
 const int SIZE_OF_ARR = 8;
-const double PI = 3.14159265;
+const double PI = 3.14159;
 ```
 
-### Functions
-
-- camelCase
-- Parameters are postfixed with 'In' if the function has the same variable
+- Functions
 
 ``` C++
-int getTotalNumber(); // getter
-void setCount(int count); // setter
-string toString; // converter
-
-int countScore(int numPlayersIn, int minScore)
-{
-    int numPlayers = numPlayersIn;
-    // ...
-}
+int getTotalNumber();       // getter
+void setCount(int count);   // setter
+string toString;            // converter
+bool isValidName(int n);    // boolean return
+bool containsPrime(int n[]) // boolean return
 ```
 
-### Classes
+- Parameters
 
-- CamelCase
+``` C++
+
+```
+
+- Classes
 
 ``` C++
 class EntityBase { /* ... */ };
-class PlayerModel { /* ... */ };
+class PlayerData { /* ... */ };
 class BoardGraphics { /* ... */ };
 ```
 
-### Enumerators
-
-- Enumerators are prefixed with 'E'
+- Enumerators
 
 ``` C++
 enum EColours { /* ... */ };
@@ -194,9 +182,7 @@ enum EDataType { /* ... */ };
 enum EPlayerType { /* ... */ };
 ```
 
-### Files
-
-- File names are in lower case and separated by \_
+- Files
 
 ```
 main.cpp
@@ -211,11 +197,18 @@ graphics_manager.hpp
 
 
 
+
+
 ## Comments
 
 ### Single-Line Comments
 
 ### Multi-Line Comments
+
+
+
+
+
 
 
 ## Formatting
