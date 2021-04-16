@@ -2,8 +2,6 @@
 
 - [Macro](#Macro)
     - [Include Guard](#Include-Guard)
-    - [Order of Includes](#Order-of-Includes)
-    - [define Keyword](#define-Keyword)
 
 - [Classes](#Classes)
     - [Layout](#Layout)
@@ -25,6 +23,9 @@
 - [Formatting](#Formatting)
     - [Brackets](#Brackets)
     - [Separating Lines](#Separating-Lines)
+    - [Avoiding Abundance](#Avoiding-Abundance)
+
+- Optimisations
 
 The order (but not the style) generally follows Google C++ Style Guide: https://google.github.io/styleguide/cppguide
 
@@ -50,10 +51,6 @@ or
 
 #endif
 ```
-
-### Order of Includes
-
-### define Keyword
 
 
 
@@ -216,15 +213,16 @@ graphics_manager.hpp
 
 ## Comments
 
+### Single-Line Comments
 
-
+### Multi-Line Comments
 
 
 ## Formatting
 
 ### Brackets
 
-Any bracket style can be used as long as used consistently:
+Any bracket style can be used as long as consistent:
 
 ``` C++
 int main()
@@ -318,3 +316,63 @@ int getPlayerRanking(PlayerBase player, GameManager game, int currRanking, int p
     // another solution: shorter variable names
 }
 ```
+
+### Avoiding Abundance
+
+Some statements have short-handed notations:
+
+``` C++
+i = i + j;
+i += j; // better
+
+k = k + 1;
+k++; // better
+
+// similarly -=, *=, /=, <<=, ^=, |=, etc.
+```
+
+Some if-else statements can be rewritten using the ternary statement:
+
+``` C++
+max = (num1 > num2)? num1 : num2;
+
+// rather than
+
+if(num1 > num2)
+    max = num1;
+else
+    max = num2;
+```
+
+Boolean values can be returned directly:
+
+``` C++
+int isOdd(int n)
+{
+    return n % 2;
+}
+
+// rather than
+
+int isOdd(int n)
+{
+    if(n % 2 == 1)
+        return 1;
+    else
+        return 0;
+}
+
+//
+
+if(node->right)
+    traverse(node->right);
+
+// rather than
+
+if(node->right != NULL)
+    traverse(node->right);
+```
+
+
+## Optimisations
+
