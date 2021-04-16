@@ -65,7 +65,7 @@ The general layout of the start of a file should follow as shown:
 #include <iostream> // 2. standard libraries
 #include <fstream>
 #include <vector>
-#include "nnet.hpp" // 3. cutom libraries
+#include "nnet.hpp" // 3. custom libraries
 #include "launcher.hpp"
 
 #define MAX_ARR_SIZE 2048 // 4. macro
@@ -251,7 +251,7 @@ int isPrime(int n) // takes the parameter as n
 { // function starts
     for(int i=2; i<=sqrt(n); i++) // iterates from 2 to sqrt(n)
     { // for starts
-        if(n % i == 0) // divide by i and check if i devides n
+        if(n % i == 0) // divide by i and check if i divides n
             return 0; // return true if divisible
     } // for ends
 
@@ -271,7 +271,7 @@ else // (i == threshold)
 
 ### Multi-Line Comments
 
-Commenting out a bit chunk of unused or test code:
+Commenting out a big chunk of unused or test code:
 
 ``` C++
 /*void printErrMsg(string fcn, string msg)
@@ -376,7 +376,7 @@ int getPlayerRanking(PlayerBase player, GameManager game, int currRanking, int p
 
 ### Avoiding Abundance
 
-Some statements have short-handed notations:
+Some statements have shorthand notations:
 
 ``` C++
 i = i + j;
