@@ -2,7 +2,7 @@
 
 - [Getting Started](#Getting-Started)
     - [Include Guard](#Include-Guard)
-    - [Layout](#layout)
+    - [Code Layout](#code-layout)
 
 - [Classes](#Classes)
     - [Layout](#Layout)
@@ -55,7 +55,7 @@ or
 #endif
 ```
 
-### Layout
+### Code Layout
 
 The general layout of the start of a file should follow as shown:
 
