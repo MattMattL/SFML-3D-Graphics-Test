@@ -16,8 +16,8 @@ public:
 	Vector3<float> at(int);
 	int size();
 
-	void add(float, float, float);
-	void add(Vector3<float>);
+	Component3D& add(float, float, float);
+	Component3D& add(Vector3<float>);
 
 	Component3D translate(float, float, float);
 
@@ -45,7 +45,7 @@ int Component3D::size()
 	return points.size();
 }
 
-void Component3D::add(float x, float y, float z)
+Component3D& Component3D::add(float x, float y, float z)
 {
 	Vector3<float> vec;
 
@@ -54,11 +54,15 @@ void Component3D::add(float x, float y, float z)
 	vec.z = z;
 
 	points.push_back(vec);
+
+	return *this;
 }
 
-void Component3D::add(Vector3<float> vec)
+Component3D& Component3D::add(Vector3<float> vec)
 {
 	points.push_back(vec);
+
+	return *this;
 }
 
 Component3D Component3D::translate(float deltaX, float deltaY, float deltaZ)

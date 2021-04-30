@@ -18,6 +18,7 @@ public:
 	int size();
 
 	void add(Component3D);
+	Component3D& createComponent();
 
 private:
 	vector<Component3D> components;
@@ -46,6 +47,15 @@ int Object3D::size()
 void Object3D::add(Component3D component)
 {
 	components.push_back(component);
+}
+
+Component3D& Object3D::createComponent()
+{
+	Component3D newComponent;
+
+	components.push_back(newComponent);
+
+	return components.at(components.size() - 1);
 }
 
 
