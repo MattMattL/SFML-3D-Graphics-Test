@@ -34,7 +34,7 @@ Graphics3D::Graphics3D()
 	cameraX = 0;
 	cameraY = 0;
 	cameraZ = 0;
-	screenDistance = 100;
+	screenDistance = 300;
 }
 
 Graphics3D::~Graphics3D()

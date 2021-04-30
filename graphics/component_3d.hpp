@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include "vector_3d.hpp"
 
 #define Colour Color
 
@@ -57,7 +58,7 @@ Component3D& Component3D::add(float x, float y, float z)
 
 	vec.x = x;
 	vec.y = y;
-	vec.z = z;
+	vec.z = -z; // for the "right hand rule" direction
 
 	points.push_back(vec);
 
@@ -66,7 +67,7 @@ Component3D& Component3D::add(float x, float y, float z)
 
 Component3D& Component3D::add(Vector3<float> vec)
 {
-	points.push_back(vec);
+	add(vec.x, vec.y, vec.z);
 
 	return *this;
 }
