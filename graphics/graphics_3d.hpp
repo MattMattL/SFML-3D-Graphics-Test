@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
+
 #include "object_3d.hpp"
 #include "vector_3d.hpp"
 
@@ -122,6 +123,8 @@ ConvexShape Graphics3D::getTranslatedComponent(Component3D component)
 
 		polygon.setPoint(index++, screenVec);
 	}
+
+	polygon.setFillColor(component.getColour());
 
 	return polygon;
 }

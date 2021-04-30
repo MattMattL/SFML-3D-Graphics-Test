@@ -4,6 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
+#define Colour Color
+
 using namespace std;
 using namespace sf;
 
@@ -19,15 +21,19 @@ public:
 	Component3D& add(float, float, float);
 	Component3D& add(Vector3<float>);
 
+	void setColour(sf::Colour);
+	sf::Colour getColour();
+
 	Component3D translate(float, float, float);
 
 private:
 	vector<Vector3<float> > points;
+	sf::Colour colour;
 };
 
 Component3D::Component3D()
 {
-	
+	colour = sf::Colour(255, 255, 255);
 }
 
 Component3D::~Component3D()
@@ -63,6 +69,17 @@ Component3D& Component3D::add(Vector3<float> vec)
 	points.push_back(vec);
 
 	return *this;
+}
+
+
+void Component3D::setColour(sf::Colour colourIn)
+{
+	colour = colourIn;
+}
+
+sf::Colour Component3D::getColour()
+{
+	return colour;
 }
 
 Component3D Component3D::translate(float deltaX, float deltaY, float deltaZ)
