@@ -79,12 +79,13 @@ void Graphics3D::runScreen()
 
 					window.clear();
 
-					for(int i=0; i<objects.size(); i++)
+					for(int i=0; i<objects.size(); ++i)
+					{
 						for(int j=0; j<objects.at(i).size(); j++)
+						{
 							window.draw(getTranslatedComponent(objects.at(i).at(j)));	
-
-					// for(int i=0; i<cube.size(); i++)
-					// 	window.draw(getTranslatedComponent(cube.at(i)));
+						}
+					}
 
 					window.display();
 
@@ -101,13 +102,13 @@ ConvexShape Graphics3D::getTranslatedComponent(Component3D component)
 {
 	ConvexShape polygon(4);
 
-	int temp = 0;
+	int index = 0;
 
-	for(int j=0; j<component.size(); j++)
+	for(int i=0; i<component.size(); ++i)
 	{
-		float a = component.at(j).x;
-		float b = component.at(j).y;
-		float c = component.at(j).z;
+		float a = component.at(i).x;
+		float b = component.at(i).y;
+		float c = component.at(i).z;
 		float p = cameraX;
 		float q = cameraY;
 		float r = cameraZ;
@@ -117,20 +118,10 @@ ConvexShape Graphics3D::getTranslatedComponent(Component3D component)
 		float x = t * (b - q) + q + screenWidth / 2;
 		float y = t * (a - p) + p + screenHeight / 2;
 
-		cout << "a = " << a << endl;
-		cout << "b = " << b << endl;
-		cout << "c = " << c << endl;
-		cout << "p = " << p << endl;
-		cout << "q = " << q << endl;
-		cout << "r = " << r << endl;
-		cout << endl;
-
 		Vector2f screenVec(x, y);
 
-		polygon.setPoint(temp++, screenVec);
+		polygon.setPoint(index++, screenVec);
 	}
-
-	cout << endl;
 
 	return polygon;
 }

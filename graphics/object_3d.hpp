@@ -52,11 +52,9 @@ void Object3D::add(Component3D component)
 Component3D& Object3D::createComponent()
 {
 	Component3D newComponent;
-
 	components.push_back(newComponent);
 
 	return components.at(components.size() - 1);
 }
-
 
 #endif
