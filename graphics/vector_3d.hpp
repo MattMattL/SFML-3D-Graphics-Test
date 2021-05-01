@@ -13,7 +13,7 @@ public:
 
 	T dot(Vector3D<T>);
 	Vector3D<T> cross(Vector3D<T>);
-	Vector3D norm();
+	Vector3D normalise();
 
 private:
 
@@ -58,7 +58,7 @@ Vector3D<T> Vector3D<T>::cross(Vector3D<T> v)
 }
 
 template<class T>
-Vector3D<T> Vector3D<T>::norm()
+Vector3D<T> Vector3D<T>::normalise()
 {
 	Vector3D result;
 
