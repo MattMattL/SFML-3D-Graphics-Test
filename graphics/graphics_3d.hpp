@@ -19,8 +19,8 @@ public:
 
 private:
 	float screenWidth, screenHeight;
-	float cameraX, cameraY, cameraZ;
 	float screenDistance;
+	Vector3D<float> cameraPos, cameraAngle;
 
 	vector<Object3D> objects;
 
@@ -31,9 +31,8 @@ Graphics3D::Graphics3D()
 {
 	screenWidth = 1080;
 	screenHeight = 720;
-	cameraX = 0;
-	cameraY = 0;
-	cameraZ = 0;
+	cameraPos.set(0, 0, 0);
+	cameraAngle.setSpherical(1, 0, 0);
 	screenDistance = 300;
 }
 
@@ -70,12 +69,12 @@ void Graphics3D::runScreen()
 				case Event::TextEntered:
 					switch(event.text.unicode)
 					{
-						case 'w': cameraX -= 10; break;
-						case 's': cameraX += 10; break;
-						case 'a': cameraY -= 10; break;
-						case 'd': cameraY += 10; break;
-						case 'q': cameraZ += 10; break;
-						case 'e': cameraZ -= 10; break;
+						case 'w': cameraPos.x -= 10; break;
+						case 's': cameraPos.x += 10; break;
+						case 'a': cameraPos.y -= 10; break;
+						case 'd': cameraPos.y += 10; break;
+						case 'r': cameraPos.z += 10; break;
+						case 'f': cameraPos.z -= 10; break;
 					}
 
 					window.clear();
@@ -110,9 +109,9 @@ ConvexShape Graphics3D::getTranslatedComponent(Component3D component)
 		float a = component.at(i).x;
 		float b = component.at(i).y;
 		float c = component.at(i).z;
-		float p = cameraX;
-		float q = cameraY;
-		float r = cameraZ;
+		float p = cameraPos.x;
+		float q = cameraPos.y;
+		float r = cameraPos.z;
 		float z = screenDistance;
 
 		float t = (z - r) / (c - r);
