@@ -105,6 +105,10 @@ Vector3D<T> Vector3D<T>::operator + (Vector3D<T> v)
 	result.y = y + v.y;
 	result.z = z + v.z;
 
+	result.rho = rho + v.rho;
+	result.phi = phi + v.phi;
+	result.theta = theta + v.theta;
+
 	return result;
 }
 
@@ -116,6 +120,10 @@ Vector3D<T> Vector3D<T>::operator - (Vector3D<T> v)
 	result.x = x - v.x;
 	result.y = y - v.y;
 	result.z = z - v.z;
+
+	result.rho = rho - v.rho;
+	result.phi = phi - v.phi;
+	result.theta = theta - v.theta;
 
 	return result;
 }
@@ -148,6 +156,22 @@ template<class T>
 void Vector3D<T>::toSpherical()
 {
 	rho = sqrt(x * x + y * y + z * z);
+	phi = atan(y / z);
+	theta = atan(sqrt(z * z + y * y) / -x);
+}
+
+template<class T>
+void Vector3D<T>::toCartesian()
+{
+	z = rho * sin(theta) * cos(phi);
+	y = rho * sin(theta) * sin(phi);
+	x = -rho * cos(theta);
+}
+
+/*template<class T>
+void Vector3D<T>::toSpherical()
+{
+	rho = sqrt(x * x + y * y + z * z);
 	phi = atan(y / x);
 	theta = atan(sqrt(x * x + y * y) / z);
 }
@@ -158,6 +182,6 @@ void Vector3D<T>::toCartesian()
 	x = rho * sin(theta) * cos(phi);
 	y = rho * sin(theta) * sin(phi);
 	z = rho * cos(theta);
-}
+}*/
 
 #endif
