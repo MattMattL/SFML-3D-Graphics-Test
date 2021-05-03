@@ -156,22 +156,6 @@ template<class T>
 void Vector3D<T>::toSpherical()
 {
 	rho = sqrt(x * x + y * y + z * z);
-	phi = atan(y / z);
-	theta = atan(sqrt(z * z + y * y) / -x);
-}
-
-template<class T>
-void Vector3D<T>::toCartesian()
-{
-	z = rho * sin(theta) * cos(phi);
-	y = rho * sin(theta) * sin(phi);
-	x = -rho * cos(theta);
-}
-
-/*template<class T>
-void Vector3D<T>::toSpherical()
-{
-	rho = sqrt(x * x + y * y + z * z);
 	phi = atan(y / x);
 	theta = atan(sqrt(x * x + y * y) / z);
 }
@@ -182,6 +166,6 @@ void Vector3D<T>::toCartesian()
 	x = rho * sin(theta) * cos(phi);
 	y = rho * sin(theta) * sin(phi);
 	z = rho * cos(theta);
-}*/
+}
 
 #endif

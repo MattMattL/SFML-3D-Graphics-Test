@@ -31,7 +31,7 @@ Graphics3D::Graphics3D()
 {
 	screenWidth = 1080;
 	screenHeight = 720;
-	cameraPos.set(0, 0, 0);
+	cameraPos.set(0, 0, -200);
 	cameraAngle.setSpherical(1, 0, 0);
 	screenDistance = 300;
 }
@@ -67,19 +67,20 @@ void Graphics3D::runScreen()
 					break;
 
 				case Event::TextEntered:
+					cout << event.text.unicode << endl;
 					switch(event.text.unicode)
 					{
-						case 'w': cameraPos.x -= 10; break;
-						case 's': cameraPos.x += 10; break;
-						case 'a': cameraPos.y -= 10; break;
-						case 'd': cameraPos.y += 10; break;
+						case 'w': cameraPos.y -= 10; break;
+						case 's': cameraPos.y += 10; break;
+						case 'a': cameraPos.x -= 10; break;
+						case 'd': cameraPos.x += 10; break;
 						case 'r': cameraPos.z += 10; break;
 						case 'f': cameraPos.z -= 10; break;
 
-						case 'i': cameraAngle.theta += 0.1; break;
-						case 'k': cameraAngle.theta -= 0.1; break;
-						case 'j': cameraAngle.phi += 0.1; break;
-						case 'l': cameraAngle.phi -= 0.1; break;
+						// case 'i': cameraAngle.theta += 0.1; break;
+						// case 'k': cameraAngle.theta -= 0.1; break;
+						// case 'j': cameraAngle.phi += 0.1; break;
+						// case 'l': cameraAngle.phi -= 0.1; break;
 					}
 
 					window.clear();
@@ -120,29 +121,30 @@ ConvexShape Graphics3D::getTranslatedComponent(Component3D component)
 		float z = screenDistance;
 
 		// apply camera rotation
-		Vector3D<float> translated = component.at(i) - cameraPos;
+		// Vector3D<float> translated = component.at(i) - cameraPos;
 
 		// printf("tran: %6.1f, %6.1f, %6.1f\n", translated.x, translated.y, translated.z);
 		
-		translated.toSpherical();
-		translated = translated + cameraAngle;
+		// translated.toSpherical();
+		// translated = translated + cameraAngle;
 		
-		translated.toCartesian();
-		translated = translated + cameraPos;
+		// translated.toCartesian();
+		// translated = translated + cameraPos;
 
-		a = translated.x;
-		b = translated.y;
-		c = translated.z;
+		// a = translated.x;
+		// b = translated.y;
+		// c = translated.z;
 
 		// printf("comp: %6.1f, %6.1f, %6.1f\n", component.at(i).x, component.at(i).y, component.at(i).z);
 		// printf("tran: %6.1f, %6.1f, %6.1f\n", translated.x, translated.y, translated.z);
 
-		// calculate new coordinates
+		// calculate projected coordinates
 		float t = (z - r) / (c - r);
-		float x = t * (z - q) + q + screenWidth / 2;
-		float y = t * (a - p) + p + screenHeight / 2;
+		float x = t * (a - p) + p + screenWidth / 2;
+		float y = t * (b - q) + q + screenHeight / 2;
+		
 
-		// register the translated coordinates
+		// register translated coordinates
 		Vector2f screenVec(x, y);
 
 		polygon.setPoint(index++, screenVec);

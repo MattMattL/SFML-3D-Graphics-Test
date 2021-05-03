@@ -58,7 +58,7 @@ Component3D& Component3D::add(float x, float y, float z)
 
 	vec.x = x;
 	vec.y = y;
-	vec.z = -z; // for the "right hand rule" direction
+	vec.z = -z;
 
 	points.push_back(vec);
 
