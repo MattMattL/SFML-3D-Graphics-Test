@@ -16,11 +16,11 @@ public:
 	Component3D();
 	~Component3D();
 
-	Vector3<float> at(int);
+	Vector3D<float> at(int);
 	int size();
 
 	Component3D& add(float, float, float);
-	Component3D& add(Vector3<float>);
+	Component3D& add(Vector3D<float>);
 
 	void setColour(sf::Colour);
 	sf::Colour getColour();
@@ -28,7 +28,7 @@ public:
 	Component3D translate(float, float, float);
 
 private:
-	vector<Vector3<float> > points;
+	vector<Vector3D<float> > points;
 	sf::Colour colour;
 };
 
@@ -42,7 +42,7 @@ Component3D::~Component3D()
 
 }
 
-Vector3<float> Component3D::at(int index)
+Vector3D<float> Component3D::at(int index)
 {
 	return points.at(index);
 }
@@ -54,7 +54,7 @@ int Component3D::size()
 
 Component3D& Component3D::add(float x, float y, float z)
 {
-	Vector3<float> vec;
+	Vector3D<float> vec;
 
 	vec.x = x;
 	vec.y = y;
@@ -65,7 +65,7 @@ Component3D& Component3D::add(float x, float y, float z)
 	return *this;
 }
 
-Component3D& Component3D::add(Vector3<float> vec)
+Component3D& Component3D::add(Vector3D<float> vec)
 {
 	add(vec.x, vec.y, vec.z);
 
