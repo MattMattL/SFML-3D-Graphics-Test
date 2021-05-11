@@ -120,29 +120,33 @@ ConvexShape Graphics3D::getTranslatedComponent(Component3D component)
 		float r = cameraPos.z;
 		float z = screenDistance;
 
-		// apply camera rotation
-		Vector3D<float> translated = component.at(i) - cameraPos;
 
-		if(!i) printf("comp: %6.1f, %6.1f, %6.1f\n", component.at(i).x, component.at(i).y, component.at(i).z);
-		if(!i) printf("tran: %6.1f, %6.1f, %6.1f\n", translated.x, translated.y, translated.z);
-		
+
+		/* THIS PART IS SERIOUSLY BROKEN */
+
+		// apply camera rotation
+		Vector3D<float> translated;
+
+		translated = component.at(i) - cameraPos; // centre around 0
+
 		translated.toSpherical();
-		translated = translated - cameraAngle;
+		translated = translated - cameraAngle; // rotational transformation
 		
 		translated.toCartesian();
-		translated = translated + cameraPos;
+		translated = translated + cameraPos; // back to original basis
 
+		/*********************************/
+
+
+
+		// calculate projected coordinates on the screen
 		a = translated.x;
 		b = translated.y;
 		c = translated.z;
 
-		if(!i) printf("tran: %6.1f, %6.1f, %6.1f\n\n", translated.x, translated.y, translated.z);
-
-		// calculate projected coordinates
 		float t = (z - r) / (c - r);
-		float x = t * (a - p) + p + screenWidth / 2;
-		float y = t * (b - q) + q + screenHeight / 2;
-		
+		float x = (t * (a - p) + p) + (screenWidth / 2);
+		float y = (t * (b - q) + q) + (screenHeight / 2);
 
 		// register translated coordinates
 		Vector2f screenVec(x, y);
