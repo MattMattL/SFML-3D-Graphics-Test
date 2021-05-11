@@ -77,10 +77,10 @@ void Graphics3D::runScreen()
 						case 'r': cameraPos.z += 10; break;
 						case 'f': cameraPos.z -= 10; break;
 
-						// case 'i': cameraAngle.theta += 0.1; break;
-						// case 'k': cameraAngle.theta -= 0.1; break;
-						// case 'j': cameraAngle.phi += 0.1; break;
-						// case 'l': cameraAngle.phi -= 0.1; break;
+						case 'i': cameraAngle.theta += 0.12; break;
+						case 'k': cameraAngle.theta -= 0.12; break;
+						case 'j': cameraAngle.phi -= 0.12; break;
+						case 'l': cameraAngle.phi += 0.12; break;
 					}
 
 					window.clear();
@@ -121,22 +121,22 @@ ConvexShape Graphics3D::getTranslatedComponent(Component3D component)
 		float z = screenDistance;
 
 		// apply camera rotation
-		// Vector3D<float> translated = component.at(i) - cameraPos;
+		Vector3D<float> translated = component.at(i) - cameraPos;
 
-		// printf("tran: %6.1f, %6.1f, %6.1f\n", translated.x, translated.y, translated.z);
+		if(!i) printf("comp: %6.1f, %6.1f, %6.1f\n", component.at(i).x, component.at(i).y, component.at(i).z);
+		if(!i) printf("tran: %6.1f, %6.1f, %6.1f\n", translated.x, translated.y, translated.z);
 		
-		// translated.toSpherical();
-		// translated = translated + cameraAngle;
+		translated.toSpherical();
+		translated = translated - cameraAngle;
 		
-		// translated.toCartesian();
-		// translated = translated + cameraPos;
+		translated.toCartesian();
+		translated = translated + cameraPos;
 
-		// a = translated.x;
-		// b = translated.y;
-		// c = translated.z;
+		a = translated.x;
+		b = translated.y;
+		c = translated.z;
 
-		// printf("comp: %6.1f, %6.1f, %6.1f\n", component.at(i).x, component.at(i).y, component.at(i).z);
-		// printf("tran: %6.1f, %6.1f, %6.1f\n", translated.x, translated.y, translated.z);
+		if(!i) printf("tran: %6.1f, %6.1f, %6.1f\n\n", translated.x, translated.y, translated.z);
 
 		// calculate projected coordinates
 		float t = (z - r) / (c - r);

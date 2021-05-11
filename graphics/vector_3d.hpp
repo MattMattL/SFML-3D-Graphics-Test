@@ -26,6 +26,8 @@ public:
 	void toSpherical();
 	void toCartesian();
 
+	void print();
+
 private:
 
 public: // temp
@@ -58,6 +60,10 @@ void Vector3D<T>::set(T xIn, T yIn, T zIn)
 	x = xIn;
 	y = yIn;
 	z = zIn;
+
+	rho = 0;
+	phi = 0;
+	theta = 0;
 }
 
 template<class T>
@@ -66,6 +72,10 @@ void Vector3D<T>::setSpherical(T rhoIn, T phiIn, T thetaIn)
 	rho = rhoIn;
 	phi = phiIn;
 	theta = thetaIn;
+
+	x = 0;
+	y = 0;
+	z = 0;
 }
 
 template<class T>
@@ -166,6 +176,13 @@ void Vector3D<T>::toCartesian()
 	x = rho * sin(theta) * cos(phi);
 	y = rho * sin(theta) * sin(phi);
 	z = rho * cos(theta);
+}
+
+template<class T>
+void Vector3D<T>::print()
+{
+	printf("(%4.1f, %4.1f, %4.1f),  ", (double)x, (double)y, (double)z);
+	printf("(%4.1f, %4.1f, %4.1f)\n", (double)rho, (double)phi * 180 / M_PI, (double)theta * 180 / M_PI);
 }
 
 #endif
