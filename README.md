@@ -1,6 +1,6 @@
 # 3D Graphics using SFML
 
-Testing 3D graphics using SFML library, designed for 2D games
+Rendering 3D graphics using SFML, a popular library capable of rendering 2D graphics/games
 
 
 ## Demo
